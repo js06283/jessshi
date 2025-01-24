@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "Jessica Shi",
   profile: "https://satnaing.dev/",
   desc: "A personal website for Jessica Shi.",
-  title: "AstroPaper",
+  title: "Jessica Shi",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
