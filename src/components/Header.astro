@@ -15,18 +15,31 @@ const { activeNav } = Astro.props;
   <div class="nav-container">
     <div class="top-nav-wrap">
       <a href="/" class="logo whitespace-nowrap">
-        {
-          LOGO_IMAGE.enable ? (
+        <!-- {
+          LOGO_IMAGE.enable ? ( -->
+        <!-- {
+          currentTheme == "light" ? ( -->
+        <p id="logo-img">
+          <img
+            src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+            alt={SITE.title}
+            width={LOGO_IMAGE.width}
+            height={LOGO_IMAGE.height}
+          />
+        </p>
+        <!-- ) : (
             <img
-              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+              src={`/assets/${LOGO_IMAGE.svg ? "logo_white.svg" : "logo_white.png"}`}
               alt={SITE.title}
               width={LOGO_IMAGE.width}
               height={LOGO_IMAGE.height}
             />
-          ) : (
+          )
+        } -->
+        <!-- ) : (
             SITE.title
           )
-        }
+        } -->
       </a>
       <nav id="nav-menu">
         <button
@@ -55,7 +68,7 @@ const { activeNav } = Astro.props;
           </svg>
         </button>
         <ul id="menu-items" class="display-none sm:flex">
-          <li>
+          <!-- <li>
             <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
               Posts
             </a>
@@ -69,8 +82,8 @@ const { activeNav } = Astro.props;
             <a href="/about/" class={activeNav === "about" ? "active" : ""}>
               About
             </a>
-          </li>
-          {
+          </li> -->
+          <!-- {
             SITE.showArchives && (
               <li>
                 <LinkButton
@@ -104,9 +117,9 @@ const { activeNav } = Astro.props;
                 </LinkButton>
               </li>
             )
-          }
-          <li>
-            <LinkButton
+          } -->
+          <!-- <li> -->
+          <!-- <LinkButton
               href="/search/"
               className={`focus-outline p-3 sm:p-1 ${
                 activeNav === "search" ? "active" : ""
@@ -122,8 +135,8 @@ const { activeNav } = Astro.props;
                 ></path>
               </svg>
               <span class="sr-only">Search</span>
-            </LinkButton>
-          </li>
+            </LinkButton> -->
+          <!-- </li> -->
           {
             SITE.lightAndDarkMode && (
               <li>
@@ -147,7 +160,9 @@ const { activeNav } = Astro.props;
         </ul>
       </nav>
     </div>
+    <div>Currently I am located in NYC.</div>
   </div>
+
   <Hr />
 </header>
 

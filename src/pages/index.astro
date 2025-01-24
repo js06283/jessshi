@@ -23,53 +23,122 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-        <span class="sr-only">RSS Feed</span>
-      </a>
+      <div class="flex flex-row items-center justify-center">
+        <img
+          src="/assets/headshot.jpg"
+          alt="Jessica Shi"
+          class="mr-8 aspect-[2/3] w-1/3 rounded-3xl object-cover"
+        />
+        <div>
+          <h2 id="title">hi i'm jessica 👋</h2>
+          <!-- <a
+            target="_blank"
+            href="/rss.xml" 
+            class="rss-link"
+            aria-label="rss feed"
+            title="RSS Feed"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
+              ><path
+                d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
+              ></path><path
+                d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
+              ></path><circle cx="6" cy="18" r="2"></circle>
+            </svg>
+            <span class="sr-only">RSS Feed</span>
+          </a> -->
 
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p>
-        Read the blog posts or check
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+          <p>
+            I’m a first-year PhD Student in Operations Management at New York
+            University Stern School of Business. Currently, I work with
+            Professor Divya Singhvi on Generative AI and Human-AI Collaboration
+            in operations for social good. I graduated from Columbia University
+            in 2024 with a degree in operations research.
+          </p>
+          <p>email: jjs9997 at stern.nyu.edu</p>
+          <p>
+            <LinkButton
+              className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+              href="https://github.com/satnaing/astro-paper#readme"
+            >
+              CV
+            </LinkButton>
+          </p>
+          {
+            // only display if at least one social link is enabled
+            socialCount > 0 && (
+              <div class="social-wrapper">
+                <div class="social-links">Social Links:</div>
+                <Socials />
+              </div>
+            )
+          }
+        </div>
+      </div>
     </section>
 
     <Hr />
 
-    {
+    <section class="mt-4" id="research">
+      <h2 id="section-title">-research-</h2>
+      <h2 id="sub-section-title">Working Papers</h2>
+      <dl>
+        <dt>
+          Density and Affinity Dependent Social Segregation and Arbitrage
+          Equilibrium in a Multi-Class Schelling Game
+        </dt>
+        <dd>
+          - with Venkat Venkatasubrmanian, Leo Goldman, Arun Sankar E.M.,
+          Abhishek Sivaram
+        </dd>
+        <dt>
+          Urban design for active mobility: The impact of transportation network
+          geographic density on children’s trips to school
+        </dt>
+        <dd>
+          - with Brady Bushover, Sarah Forrest, Ariana N. Gobaud, Christina A.
+          Mehranbod, Leah E. Roberts, Christopher N. Morrison
+        </dd>
+      </dl>
+    </section>
+
+    <Hr />
+    <section class="mt-10">
+      <h2 class="mt-4" id="section-title">-awards-</h2>
+      <li class="mt-4">
+        The Stephen D. Guarino Memorial Award in Industrial Engineering and
+        Operations Research, Columbia University, 2024
+      </li>
+      <li>Senior Marshal, Columbia University, 2024</li>
+      <li>Second Place at Startup Columbia Technology Track, 2024</li>
+      <li>Amazon SCOT INFORMS Scholarship Recipient, 2023</li>
+      <li>Tau Beta Pi Junior Inductee, 2023</li>
+      <li>
+        Generation Google Scholarship for Supply Chain and Fulfillment, 2022
+      </li>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="mt-4" id="section-title">-teaching-</h2>
+      <h2 id="sub-section-title">Teaching Assistantship</h2>
+      <li class="mt-4">
+        Simulation Modeling & Analysis, Columbia University, Spring 2024
+      </li>
+      <li>Introduction to Econometrics, Columbia University, Fall 2023</li>
+      <li>Intermediate Microeconomics, Columbia University, Spring 2023</li>
+      <li>Principles of Economics, Columbia University, Fall 2022</li>
+    </section>
+
+    <section class="mb-10 mt-10">
+      <h2 class="mt-4" id="section-title">-other experience-</h2>
+      <li class="mt-4">Software Engineering Intern @ Asana, Summer 2023</li>
+      <li>Software Engineering Intern @ Microsoft Maps, Summer 2022</li>
+      <li>Software Engineering Intern @ US Census Bureau, Summer 2021</li>
+    </section>
+    <Hr />
+  </main>
+
+  <!-- {
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
@@ -119,7 +188,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
       </LinkButton>
     </div>
-  </main>
+  </main> -->
 
   <Footer />
 </Layout>
@@ -147,6 +216,21 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   .social-links {
     @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
   }
+  #section-title {
+    @apply text-center text-2xl font-semibold tracking-wide;
+  }
+  #sub-section-title {
+    @apply text-xl font-semibold tracking-wide;
+  }
+  #title {
+    @apply text-3xl;
+  }
+  dt {
+    @apply mt-4 font-semibold;
+  }
+  dd {
+    @apply mb-3 ml-4;
+  }
 
   /* ===== Featured & Recent Posts Sections ===== */
   #featured,
@@ -157,6 +241,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   #recent-posts h2 {
     @apply text-2xl font-semibold tracking-wide;
   }
+
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
   }
