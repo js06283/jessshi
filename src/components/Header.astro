@@ -15,31 +15,19 @@ const { activeNav } = Astro.props;
   <div class="nav-container">
     <div class="top-nav-wrap">
       <a href="/" class="logo whitespace-nowrap">
-        <!-- {
-          LOGO_IMAGE.enable ? ( -->
-        <!-- {
-          currentTheme == "light" ? ( -->
-        <p id="logo-img">
-          <img
-            src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-            alt={SITE.title}
-            width={LOGO_IMAGE.width}
-            height={LOGO_IMAGE.height}
-          />
-        </p>
-        <!-- ) : (
-            <img
-              src={`/assets/${LOGO_IMAGE.svg ? "logo_white.svg" : "logo_white.png"}`}
-              alt={SITE.title}
-              width={LOGO_IMAGE.width}
-              height={LOGO_IMAGE.height}
-            />
-          )
-        } -->
-        <!-- ) : (
+        {
+          LOGO_IMAGE.enable ? (
+            <p id="logo-img">
+              <img
+                src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+                alt={SITE.title}
+                class="h-[50px] w-[80px] sm:h-[90px] sm:w-[270px]"
+              />
+            </p>
+          ) : (
             SITE.title
           )
-        } -->
+        }
       </a>
       <nav id="nav-menu">
         <button
