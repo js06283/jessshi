@@ -54,11 +54,14 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           </a> -->
 
           <p>
-            I’m a first-year <b>PhD Student in Operations Management</b> at New York
-            University Stern School of Business. Currently, I work with Professor
-            Divya Singhvi and Professor Somya Singhvi on LLM-assisted decision-making.
-            I graduated from Columbia University in 2024 with a degree in operations
-            research.
+            I’m a second-year <b>PhD Student in Operations Management</b> at New
+            York University Stern School of Business. I work with Professors Divya
+            Singhvi and Somya Singhvi on LLM-assisted decision-making. My primary
+            interests are in behavioral operations, human-AI collaboration, and the
+            societal impacts of technology. I hope to design better interfaces for
+            non-technical users to benefit from operations methods
+            and AI. I graduated from Columbia University in 2024 with a degree in
+            operations research.
           </p>
           <p>email: jjs9997 at stern.nyu.edu</p>
           <p>
@@ -87,24 +90,52 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     <section class="mt-4" id="research">
       <h2 id="section-title">-research-</h2>
       <h2 id="sub-section-title">Working Papers</h2>
-      <dl>
-        <dt>
-          Density and Affinity Dependent Social Segregation and Arbitrage
-          Equilibrium in a Multi-Class Schelling Game
-        </dt>
-        <dd>
-          - with Venkat Venkatasubrmanian, Leo Goldman, Arun Sankar E.M.,
-          Abhishek Sivaram
-        </dd>
-        <dt>
-          Urban design for active mobility: The impact of transportation network
-          geographic density on children’s trips to school
-        </dt>
-        <dd>
-          - with Brady Bushover, Sarah Forrest, Ariana N. Gobaud, Christina A.
-          Mehranbod, Leah E. Roberts, Christopher N. Morrison
-        </dd>
-      </dl>
+      <ul class="paper-list">
+        <li class="paper-item">
+          <div>
+            <p class="paper-title">
+              When LLMs Hurt More than Help: Understanding Decision Failures
+              Under AI Assistance
+            </p>
+            <p class="paper-authors">
+              Jessica Shi, Divya Singhvi, Somya Singhvi
+            </p>
+            <LinkButton
+              className="paper-link-button"
+              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5670290"
+            >
+              View Abstract
+            </LinkButton>
+          </div>
+          <img src="/assets/accuracy_outcome.png" alt="" class="paper-icon" />
+        </li>
+      </ul>
+
+      <h2 id="sub-section-title">Publications</h2>
+      <ul class="paper-list">
+        <li class="paper-item">
+          <div>
+            <p class="paper-title">
+              Arbitrage equilibrium in scale- and venue-mediated socioeconomic
+              segregation: A behavioral microeconomics framework
+            </p>
+            <p class="paper-authors">
+              Venkat Venkatasubramanian, Jessica Shi, Leo Goldman, E.M. Arun
+              Sankar, Abhishek Sivaram
+            </p>
+            <p class="paper-note">
+              Published in Social Science Research (2025).
+            </p>
+            <LinkButton
+              className="paper-link-button"
+              href="https://www.sciencedirect.com/science/article/pii/S0049089X25001115"
+            >
+              View Publication
+            </LinkButton>
+          </div>
+          <img src="/assets/schelling.png" alt="" class="paper-icon" />
+        </li>
+      </ul>
     </section>
 
     <Hr />
@@ -127,8 +158,9 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <h2 class="mt-4" id="section-title">-teaching-</h2>
       <h2 id="sub-section-title">Teaching Assistantship</h2>
       <li class="mt-4">
-        Simulation Modeling & Analysis, Columbia University, Spring 2024
+        Foundations of Machine Learning, New York University, Fall 2025
       </li>
+      <li>Simulation Modeling & Analysis, Columbia University, Spring 2024</li>
       <li>Introduction to Econometrics, Columbia University, Fall 2023</li>
       <li>Intermediate Microeconomics, Columbia University, Spring 2023</li>
       <li>Principles of Economics, Columbia University, Fall 2022</li>
@@ -230,11 +262,32 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   #title {
     @apply text-3xl;
   }
-  dt {
-    @apply mt-4 font-semibold;
+  .paper-list {
+    @apply mb-5 mt-3 list-none p-0;
   }
-  dd {
-    @apply mb-3 ml-4;
+  .paper-item {
+    @apply mt-4 flex items-center gap-3;
+  }
+  .paper-icon {
+    @apply flex-shrink-0 rounded-md;
+    width: 150px;
+    height: auto;
+  }
+  :global(html[data-theme="dark"]) .paper-icon {
+    background-color: #fff;
+    padding: 4px;
+  }
+  .paper-title {
+    @apply font-semibold;
+  }
+  .paper-authors {
+    @apply mt-1 text-sm;
+  }
+  .paper-note {
+    @apply mt-1 text-sm italic;
+  }
+  .paper-link-button {
+    @apply mt-2 rounded-md border border-black px-3 py-1 text-sm;
   }
 
   /* ===== Featured & Recent Posts Sections ===== */

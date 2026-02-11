@@ -57,6 +57,12 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
   {
+    name: "GoogleScholar",
+    href: "https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=v-wdIBgAAAAJ",
+    linkTitle: `${SITE.title} on Google Scholar`,
+    active: true,
+  },
+  {
     name: "Mail",
     href: "mailto:yourmail@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,

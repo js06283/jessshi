@@ -5,7 +5,7 @@ modDatetime: 2023-12-25T15:22:00Z
 title: San Francisco
 slug: san-francisco
 featured: true
-draft: true
+draft: false
 tags:
   - travel
 description: Travel recommendations for San Francisco.
@@ -37,13 +37,13 @@ One of my absolute favorite National Parks I've visited! Incredible facilities a
 
 I entered the three day in advance lottery for a Sunday day hike in late June and luckily won first try! This lottery can be entered through [recreation.gov](recreation.gov), and there's also an option to enter the lottery months in advance.
 
-<img src='/images/sf/halfdome.jpeg' style="width:300px;height:auto">
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/halfdome.jpeg' style="width:300px;height:auto">
 
 Excitedly, I was able to convince four of my intern friends to join me on the sudden trip... We left on the preceding Saturday and checked into the Days Inn in Merced. Wake up call at 3:00am, 1.5 hour drive to get to the trailhead right before sunrise. Definitely recommend getting there as early as possible as the lot fills up and it's nice having the Mist Trail to yourselves! It was getting light out enough to be able to see the falls clearly, but we unfortunately forwent the ponchos and got soaked.
 
 It took us 8h 38m to complete the logged 18.9 miles. We all brought work gloves with us for the cables, which were certainly terrifying, but so worth it! The hike down was definitely a bit somber, but a lot quicker, and most of the crowds from the day had also dissapated by the time we were down.
 
-<img src='/images/sf/summitdome.jpeg' style="width:600px;height:auto">
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/summitdome.jpeg' style="width:600px;height:auto">
 
 Having work the next day, we drove straight back to SF (which was very exhausting would not recommend!). Not sure if I'll be doing this hike again anytime soon, but I'd love to get back up there someday.
 
@@ -71,6 +71,8 @@ We were hoping to cool off after our Yosemite Falls trail, but after driving to 
 
 Huge lake for all sorts of recreational activities on the California/Nevada border. I planned a big trip of ~20 people across two Airbnbs in West Lake Tahoe. As with Yosemite, the crowds at Tahoe were also pretty bad over the weekend so knowing things ahead was definitely useful! We left SF on Friday to get there in the evening.
 
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/tahoe.jpeg' style="width:600px;height:auto">
+
 <b>🥾 [Shirley Canyon Trail](https://www.alltrails.com/trail/us/california/shirley-canyon-cascades-trail)</b> <i>4.33 mi, 2083ft, 2h 30m</i>
 
 Nice trail passing many terrains, got to see a good bit of snow at the top which was cool! A very beautiful lake at the top. The trail is adjacent to a ski resort, so we decided to not go back and go off trail a bit and try to hike to the cable car to take it down (further than it looks). The cable car costs money to go up, but down is completely free!
@@ -93,13 +95,13 @@ A lovely coastal area in California. I spent a weekend here backpacking!
 
 This trail is a very well-marked trail for backpacking, and we found it perfect for our late start, as we didn't get there until around 2pm. We were pretty worried about the parking situation from our research, but luckily a spot opened up as we arrived. Mid-July the weather in the area was pretty brutal, so definitely needed lots of water and sunscreen. Lots of fresh water refill spots, so a water filter was a must.
 
-<img src='/images/sf/sykes.jpeg' style="width:300px;height:auto">
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/sykes.jpeg' style="width:300px;height:auto">
 
 We ended up stopping before reaching the hot springs, since it was getting dark and we were very hot, and a cold bath sounded much nicer than a hot spring! There's a camp at Barlow flats where there's a nice swimming hole where we got to get in the water. I personally suffered from many, many, many mosquito bites (though my group did not) even with applying DEET.
 
 <b>Driving the coast </b>
 Stop by Bixby Bridge and the many pull-offs, the views are spectacular!
-<img src='/images/sf/bixby.jpeg' style="width:600px;height:auto">
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/bixby.jpeg' style="width:600px;height:auto">
 
 # Kings Canyon & Sequoia National Park 🌳
 
@@ -110,7 +112,7 @@ We headed straight down to Sequoia National Park to spend the night at the [John
 <b>🥾 [Moro Rock](https://www.alltrails.com/trail/us/california/moro-rock--3)</b>
 A very popular site for some expansive mountaintop views, cool trail up to the top carved through the rock.
 
-<img src='/images/sf/moro.jpeg' style="width:300px;height:auto"/>
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/moro.jpeg' style="width:300px;height:auto"/>
 
 <b>🥾 [Congress Trail](https://www.alltrails.com/trail/us/california/congress-trail)</b>, <i> 2.1 mi, 308ft, 1h5m </i>
 
@@ -120,19 +122,19 @@ Big paved trail, lots of people here to see the General Sherman Tree. There's al
 
 This hike was awesome, kind of like a mini Yosemite valley and the trail follows the stream up to a sizeable waterfall!
 
-<img src='/images/sf/waterfall.jpeg' style="width:300px;height:auto"/>
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/waterfall.jpeg' style="width:300px;height:auto"/>
 
 <b>🥾 [General Grant Trail](https://www.alltrails.com/trail/us/california/general-grant-trail),</b> <i>1.3 mi, 115ft, 44m</i>
 
 On Day 2, we hit this trail bright and early, small loop trail, there's a tree you can go inside.
 
-<img src='/images/sf/sherman.jpeg' style="width:300px;height:auto"/>
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/sherman.jpeg' style="width:300px;height:auto"/>
 
 <b>🥾 [Big Stump Loop](https://www.alltrails.com/trail/us/california/big-stump-loop--4),</b> <i>1.7mi, 223ft, 57m</i>
 
 This was probably my second favorite hike! Lots of big stumps. Pretty quiet trail near the entrance of the park.
 
-<img src='/images/sf/stump.jpeg' style="width:600px;height:auto"/>
+<img src='https://pub-ca5173353a244fdc8c69047d6af97a6e.r2.dev/sf/stump.jpeg' style="width:600px;height:auto"/>
 
 A lot of Kings Canyon was closed during our trip from snow, so we didn't make it too far up the road.
 
