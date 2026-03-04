@@ -5,7 +5,7 @@ modDatetime: 2025-03-04T09:12:47.400Z
 title: Why I Decided to Pursue a PhD
 slug: why-phd
 featured: true
-draft: false
+draft: true
 tags:
   - PhD
 description: A reflection on why I decided to pursue a PhD a year into the program.
@@ -56,12 +56,10 @@ The main reason for my decision to do a PhD came down to the sort of impact that
 
 1. **Money**
    - Lower salary during the program compared to industry positions. The time to struggle is now!
-1. **Work-Life Balance** _Wait I'm not off at 5pm?_
-   - I think I'm able to
-1. **Career Uncertainty** _Will it all be worth it?_
+2. **Work-Life Balance** _Wait I'm not off at 5pm?_
+3. **Career Uncertainty** _Will it all be worth it?_
    - Getting into the PhD was only the first step, the academic job market is highly competitive and brings in a lot of uncertainty to my future. However I'm ready for the challenge and would still feel like
-1. **Structure** _Too much freedom?_
-   - Something I'm mildly
+4. **Structure** _Too much freedom?_
 
 <!-- In Fall 2023, I took the leap and took my heaviest courseload to prepare myself for the PhD life. I took the GRE and prepared my materials to apply for matriculation in 2024. Obviously writing my Statement of Purpose caused me to deeply reflect on my motivations and goals of applying. Although not all of this article made it to text of the application itself, I'll try to describe where my head was/still is at on what were the most important aspects in my career! -->
 <!--
