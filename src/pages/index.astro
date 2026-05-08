@@ -1,20 +1,11 @@
 ---
-import { getCollection } from "astro:content";
+import { SOCIALS } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
-import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
-import getSortedPosts from "@utils/getSortedPosts";
-import { SITE, SOCIALS } from "@config";
-
-const posts = await getCollection("blog");
-
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -32,29 +23,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         <div>
           <h2
             id="title"
-            class="font-sans font-semibold tracking-tight"
+            class="relative w-[max-content] font-sans before:absolute before:inset-0 before:animate-typewriter before:bg-skin-fill after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-skin-base"
           >
             hi i'm jessica 👋
           </h2>
-          <!-- <a
-            target="_blank"
-            href="/rss.xml" 
-            class="rss-link"
-            aria-label="rss feed"
-            title="RSS Feed"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-              ><path
-                d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-              ></path><path
-                d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-              ></path><circle cx="6" cy="18" r="2"></circle>
-            </svg>
-            <span class="sr-only">RSS Feed</span>
-          </a> -->
 
           <p>
-            I’m a second-year <b>PhD Student in Operations Management</b> at New
+            I'm a second-year <b>PhD Student in Operations Management</b> at New
             York University Stern School of Business. I work with Professors Divya
             Singhvi and Somya Singhvi on LLM-assisted decision-making. My primary
             interests are in behavioral operations, human-AI collaboration, and the
@@ -67,13 +42,12 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           <p>
             <LinkButton
               className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-              href="https://drive.google.com/file/d/1PwEDRHziXkJ9pSTN7OSpTp4qNQjobk9U/view?usp=sharing"
+              href="/main_2026.pdf"
             >
               CV
             </LinkButton>
           </p>
           {
-            // only display if at least one social link is enabled
             socialCount > 0 && (
               <div class="social-wrapper">
                 <div class="social-links">Social Links:</div>
@@ -87,166 +61,47 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
     <Hr />
 
-    <section class="mt-4" id="research">
-      <h2 id="section-title">-research-</h2>
-      <h2 id="sub-section-title">Working Papers</h2>
-      <ul class="paper-list">
-        <li class="paper-item">
-          <div>
-            <p class="paper-title">
-              When LLMs Hurt More than Help: Understanding Decision Failures
-              Under AI Assistance
-            </p>
-            <p class="paper-authors">
-              Jessica Shi, Divya Singhvi, Somya Singhvi
-            </p>
-            <p class="paper-note">
-              2026 POMS College of Behavioral Operations Student Paper Competition Finalist. <br>
-              Accepted to 2026 MSOM Technology, Innovation, and Entrepreneurship SIG Conference.
-            </p>
-            <LinkButton
-              className="paper-link-button"
-              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5670290"
-            >
-              View Paper
-            </LinkButton>
-          </div>
-          <img src="/assets/accuracy_outcome.png" alt="" class="paper-icon" />
+    <section class="mb-10 mt-10" id="updates">
+      <h2 id="section-title">-updates-</h2>
+      <ul class="update-list">
+        <li class="update-item">
+          <span class="update-date">July 2026</span>
+          <span class="update-sep">—</span>
+          MSOM 2026 @ Harvard Business School; Accepted to Technology, Innovation, and Entrepreneurship SIG Day
         </li>
-      </ul>
+        <li class="update-item">
+          <span class="update-date">May 2026</span>
+          <span class="update-sep">—</span>
+          AI-SCORE @ UIUC
+        </li>
+        <li class="update-item">
+          <span class="update-date">May 2026</span>
+          <span class="update-sep">—</span>
+          POMS 2026 @ Reno, NV; Finalist in the College of Behavioral Operations Management Junior Scholar Paper Competition
 
-      <h2 id="sub-section-title">Publications</h2>
-      <ul class="paper-list">
-        <li class="paper-item">
-          <div>
-            <p class="paper-title">
-              Arbitrage equilibrium in scale- and venue-mediated socioeconomic
-              segregation: A behavioral microeconomics framework
-            </p>
-            <p class="paper-authors">
-              Venkat Venkatasubramanian, Jessica Shi, Leo Goldman, E.M. Arun
-              Sankar, Abhishek Sivaram
-            </p>
-            <p class="paper-note">
-              Published in Social Science Research (2025).
-            </p>
-            <LinkButton
-              className="paper-link-button"
-              href="https://www.sciencedirect.com/science/article/pii/S0049089X25001115"
-            >
-              View Publication
-            </LinkButton>
-          </div>
-          <img src="/assets/schelling.png" alt="" class="paper-icon" />
+        </li>
+        <li class="update-item">
+          <span class="update-date">April 2026</span>
+          <span class="update-sep">—</span>
+          NYC Operations Day 2025 @ Baruch College
+        </li>
+        <li class="update-item">
+          <span class="update-date">October 2025</span>
+          <span class="update-sep">—</span>
+          INFORMS 2024 @ Atlanta, Georgia
         </li>
       </ul>
     </section>
 
-    <Hr />
-    <section class="mt-10">
-      <h2 class="mt-4" id="section-title">-awards-</h2>
-      <li class="mt-4">
-        The Stephen D. Guarino Memorial Award in Industrial Engineering and
-        Operations Research, Columbia University, 2024
-      </li>
-      <li>Senior Marshal, Columbia University, 2024</li>
-      <li>Second Place at Startup Columbia Technology Track, 2024</li>
-      <li>Amazon SCOT INFORMS Scholarship Recipient, 2023</li>
-      <li>Tau Beta Pi Junior Inductee, 2023</li>
-      <li>
-        Generation Google Scholarship for Supply Chain and Fulfillment, 2022
-      </li>
-    </section>
-
-    <section class="mt-10">
-      <h2 class="mt-4" id="section-title">-teaching-</h2>
-      <h2 id="sub-section-title">Teaching Assistantship</h2>
-      <li class="mt-4">
-        Foundations of Machine Learning, New York University, Fall 2025
-      </li>
-      <li>Simulation Modeling & Analysis, Columbia University, Spring 2024</li>
-      <li>Introduction to Econometrics, Columbia University, Fall 2023</li>
-      <li>Intermediate Microeconomics, Columbia University, Spring 2023</li>
-      <li>Principles of Economics, Columbia University, Fall 2022</li>
-    </section>
-
-    <section class="mb-10 mt-10">
-      <h2 class="mt-4" id="section-title">-other experience-</h2>
-      <li>Software Engineering Intern @ Asana, Summer 2023</li>
-      <li>Software Engineering Intern @ Microsoft Maps, Summer 2022</li>
-      <li>Software Engineering Intern @ US Census Bureau, Summer 2021</li>
-    </section>
     <Hr />
   </main>
-
-  <!-- {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
-                <Card
-                  href={`/posts/${slug}/`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts">
-          <h2>Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < SITE.postPerIndex && (
-                  <Card
-                    href={`/posts/${slug}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
-        All Posts
-        <svg xmlns="http://www.w3.org/2000/svg"
-          ><path
-            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-          ></path>
-        </svg>
-      </LinkButton>
-    </div>
-  </main> -->
 
   <Footer />
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
   #hero {
     @apply pb-6 pt-8;
-  }
-  #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-  #hero .rss-link {
-    @apply mb-6;
-  }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
   }
   #hero p {
     @apply my-2;
@@ -260,51 +115,19 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   #section-title {
     @apply mb-4 text-center text-2xl font-semibold tracking-wide;
   }
-  #sub-section-title {
-    @apply text-xl font-semibold tracking-wide;
-  }
   #title {
     @apply text-3xl;
   }
-  .paper-list {
-    @apply mb-5 mt-3 list-none p-0;
+  .update-list {
+    @apply mt-3 list-none p-0;
   }
-  .paper-item {
-    @apply mt-4 flex items-center gap-3;
+  .update-item {
+    @apply flex items-baseline gap-3 py-2;
   }
-  .paper-icon {
-    @apply flex-shrink-0 rounded-md;
-    width: 150px;
-    height: auto;
+  .update-date {
+    @apply min-w-[110px] text-sm font-semibold;
   }
-  :global(html[data-theme="dark"]) .paper-icon {
-    background-color: #fff;
-    padding: 4px;
-  }
-  .paper-title {
-    @apply font-semibold;
-  }
-  .paper-authors {
-    @apply mt-1 text-sm;
-  }
-  .paper-note {
-    @apply mt-1 text-sm italic;
-  }
-  .paper-link-button {
-    @apply mt-2 rounded-md border border-black px-3 py-1 text-sm;
-  }
-
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
-    @apply pb-6 pt-12;
-  }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
-  }
-
-  .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+  .update-sep {
+    @apply text-skin-accent;
   }
 </style>

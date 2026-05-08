@@ -1,0 +1,40 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Hr from "@components/Hr.astro";
+---
+
+<Layout title="Awards | Jessica Shi">
+  <Header activeNav="awards" />
+  <main id="main-content">
+    <section class="mb-10 mt-8">
+      <h2 id="section-title">-awards-</h2>
+      <ul class="award-list">
+        <li>
+          The Stephen D. Guarino Memorial Award in Industrial Engineering and
+          Operations Research, Columbia University, 2024
+        </li>
+        <li>Senior Marshal, Columbia University, 2024</li>
+        <li>Second Place at Startup Columbia Technology Track, 2024</li>
+        <li>Amazon SCOT INFORMS Scholarship Recipient, 2023</li>
+        <li>Tau Beta Pi Junior Inductee, 2023</li>
+        <li>
+          Generation Google Scholarship for Supply Chain and Fulfillment, 2022
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <Hr />
+  <Footer />
+</Layout>
+
+<style>
+  #section-title {
+    @apply mb-4 text-center text-2xl font-semibold tracking-wide;
+  }
+  .award-list {
+    @apply mt-3 list-disc space-y-2 pl-5;
+  }
+</style>

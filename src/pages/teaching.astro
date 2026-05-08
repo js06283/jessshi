@@ -1,0 +1,46 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Hr from "@components/Hr.astro";
+---
+
+<Layout title="Teaching & Experience | Jessica Shi">
+  <Header activeNav="teaching" />
+  <main id="main-content">
+    <section class="mb-10 mt-8">
+      <h2 id="section-title">-teaching & experience-</h2>
+
+      <h2 id="sub-section-title">Teaching Assistantship</h2>
+      <ul class="item-list">
+        <li>Foundations of Machine Learning, New York University, Fall 2025</li>
+        <li>Simulation Modeling & Analysis, Columbia University, Spring 2024</li>
+        <li>Introduction to Econometrics, Columbia University, Fall 2023</li>
+        <li>Intermediate Microeconomics, Columbia University, Spring 2023</li>
+        <li>Principles of Economics, Columbia University, Fall 2022</li>
+      </ul>
+
+      <h2 id="sub-section-title" class="mt-8">Other Experience</h2>
+      <ul class="item-list">
+        <li>Software Engineering Intern @ Asana, Summer 2023</li>
+        <li>Software Engineering Intern @ Microsoft Maps, Summer 2022</li>
+        <li>Software Engineering Intern @ US Census Bureau, Summer 2021</li>
+      </ul>
+    </section>
+  </main>
+
+  <Hr />
+  <Footer />
+</Layout>
+
+<style>
+  #section-title {
+    @apply mb-4 text-center text-2xl font-semibold tracking-wide;
+  }
+  #sub-section-title {
+    @apply text-xl font-semibold tracking-wide;
+  }
+  .item-list {
+    @apply mt-3 list-disc space-y-1.5 pl-5;
+  }
+</style>

@@ -1,0 +1,107 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Hr from "@components/Hr.astro";
+import LinkButton from "@components/LinkButton.astro";
+---
+
+<Layout title="Research | Jessica Shi">
+  <Header activeNav="research" />
+  <main id="main-content">
+    <section class="mb-10 mt-8">
+      <h2 id="section-title">-research-</h2>
+
+      <h2 id="sub-section-title">Working Papers</h2>
+      <ul class="paper-list">
+        <li class="paper-item">
+          <div>
+            <p class="paper-title">
+              When LLMs Hurt More than Help: Understanding Decision Failures
+              Under AI Assistance
+            </p>
+            <p class="paper-authors">
+              Jessica Shi, Divya Singhvi, Somya Singhvi
+            </p>
+            <p class="paper-note">
+              2026 POMS College of Behavioral Operations Student Paper Competition Finalist.
+              Accepted to 2026 MSOM Technology, Innovation, and Entrepreneurship SIG Conference.
+            </p>
+            <LinkButton
+              className="paper-link-button"
+              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5670290"
+            >
+              View Paper
+            </LinkButton>
+          </div>
+          <img src="/assets/accuracy_outcome.png" alt="" class="paper-icon" />
+        </li>
+      </ul>
+
+      <h2 id="sub-section-title">Publications</h2>
+      <ul class="paper-list">
+        <li class="paper-item">
+          <div>
+            <p class="paper-title">
+              Arbitrage equilibrium in scale- and venue-mediated socioeconomic
+              segregation: A behavioral microeconomics framework
+            </p>
+            <p class="paper-authors">
+              Venkat Venkatasubramanian, Jessica Shi, Leo Goldman, E.M. Arun
+              Sankar, Abhishek Sivaram
+            </p>
+            <p class="paper-note">
+              Published in Social Science Research (2025).
+            </p>
+            <LinkButton
+              className="paper-link-button"
+              href="https://www.sciencedirect.com/science/article/pii/S0049089X25001115"
+            >
+              View Publication
+            </LinkButton>
+          </div>
+          <img src="/assets/schelling.png" alt="" class="paper-icon" />
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <Hr />
+  <Footer />
+</Layout>
+
+<style>
+  #section-title {
+    @apply mb-4 text-center text-2xl font-semibold tracking-wide;
+  }
+  #sub-section-title {
+    @apply text-xl font-semibold tracking-wide;
+  }
+  .paper-list {
+    @apply mb-5 mt-3 list-none p-0;
+  }
+  .paper-item {
+    @apply mt-4 flex items-center gap-3;
+  }
+  .paper-icon {
+    @apply flex-shrink-0 rounded-md;
+    width: 150px;
+    height: auto;
+  }
+  :global(html[data-theme="dark"]) .paper-icon {
+    background-color: #fff;
+    padding: 4px;
+  }
+  .paper-title {
+    @apply font-semibold;
+  }
+  .paper-authors {
+    @apply mt-1 text-sm;
+  }
+  .paper-note {
+    @apply mt-1 text-sm italic;
+  }
+  .paper-link-button {
+    @apply mt-2 rounded-md border border-black px-3 py-1 text-sm;
+  }
+</style>
