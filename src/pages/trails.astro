@@ -1,0 +1,351 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Hr from "@components/Hr.astro";
+import { readFileSync } from "node:fs";
+import { hikes, visitedStates, visitedCountries } from "../data/hikes";
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+// Filter world GeoJSON to visitedCountries at build time — no manual scripts needed.
+// To add a country: add its name to visitedCountries in src/data/hikes.ts and save.
+const worldRaw = JSON.parse(
+  readFileSync(new URL("./map/world_simplified.geojson", import.meta.url), "utf8")
+);
+const countrySet = new Set(visitedCountries);
+const countriesGeo = JSON.stringify({
+  type: "FeatureCollection",
+  features: worldRaw.features.filter(
+    (f: any) => countrySet.has(f.properties?.ADMIN)
+  ),
+});
+
+const visitedParks = [
+  { name: "Hot Springs",              lat: 34.37960, lng:  -93.02210 },
+  { name: "Great Smoky Mountains",    lat: 35.65360, lng:  -83.54690 },
+  { name: "Great Sand Dunes",         lat: 37.75444, lng: -105.55861 },
+  { name: "Grand Teton",              lat: 43.90520, lng: -110.38240 },
+  { name: "Grand Canyon (South Rim)", lat: 36.06502, lng: -112.11762 },
+  { name: "Grand Canyon (North Rim)", lat: 36.16320, lng: -113.19750 },
+  { name: "Glacier",                  lat: 48.61600, lng: -113.86720 },
+  { name: "Everglades",               lat: 25.40280, lng:  -80.89340 },
+  { name: "Capitol Reef",             lat: 37.98600, lng: -111.14400 },
+  { name: "Canyonlands",              lat: 38.02520, lng: -109.96600 },
+  { name: "Bryce Canyon",             lat: 37.55480, lng: -112.19670 },
+  { name: "Badlands",                 lat: 43.65040, lng: -102.43430 },
+  { name: "Arches",                   lat: 38.77000, lng: -109.56500 },
+  { name: "Acadia",                   lat: 44.45400, lng:  -68.04930 },
+  { name: "Kings Canyon",             lat: 36.84810, lng: -118.35740 },
+  { name: "Mesa Verde",               lat: 37.18240, lng: -108.38710 },
+  { name: "Mount Rainier",            lat: 46.79810, lng: -121.47620 },
+  { name: "Olympic",                  lat: 47.69480, lng: -123.54550 },
+  { name: "Petrified Forest",         lat: 34.88920, lng: -109.79640 },
+  { name: "Rocky Mountain",           lat: 40.35760, lng: -105.83070 },
+  { name: "Sequoia",                  lat: 36.52310, lng: -118.55200 },
+  { name: "Shenandoah",               lat: 38.26040, lng:  -78.70410 },
+  { name: "Yellowstone",              lat: 44.57160, lng: -110.35500 },
+  { name: "Yosemite",                 lat: 37.82310, lng: -119.61950 },
+  { name: "Zion",                     lat: 37.30000, lng: -112.97350 },
+];
+
+const statesCount = visitedStates.length;
+const parksCount  = visitedParks.length;
+const countriesCount = visitedCountries.filter(c => c !== "United States").length + 1;
+---
+
+<Layout title="Trails | Jessica Shi">
+  <!-- Load Leaflet in <head> via slot so it's ready before initMap runs -->
+  <link
+    slot="head"
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script slot="head" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" is:inline></script>
+
+  <Header activeNav="trails" />
+  <main id="main-content">
+    <section class="mb-10 mt-8">
+      <h2 id="section-title">-trails-</h2>
+
+      <!-- Map -->
+      <div class="map-wrapper">
+        <div class="map-stats-bar">
+          <div class="map-stat">
+            <span class="stat-num">{statesCount}</span>
+            <span class="stat-label">states</span>
+          </div>
+          <span class="stat-sep">·</span>
+          <div class="map-stat">
+            <span class="stat-num">{countriesCount}</span>
+            <span class="stat-label">countries</span>
+          </div>
+          <span class="stat-sep">·</span>
+          <div class="map-stat">
+            <span class="stat-num">{parksCount}</span>
+            <span class="stat-label">national parks</span>
+          </div>
+        </div>
+        <div id="travel-map"></div>
+      </div>
+
+      <!-- Hike list -->
+      <h2 id="sub-section-title" class="mt-10">Hikes</h2>
+      {hikes.length === 0 ? (
+        <p class="empty-state">No hikes logged yet — check back soon.</p>
+      ) : (
+        <ul class="hike-grid">
+          {hikes.map(hike => (
+            <li class={`hike-card${(hike as any).highlight ? " hike-card--highlight" : ""}`}>
+              {hike.image && (
+                <img src={hike.image} alt={hike.name} class="hike-img" />
+              )}
+              <div class="hike-body">
+                <p class="hike-name">{hike.name}</p>
+                <p class="hike-location">{hike.location}</p>
+                <div class="hike-stats">
+                  <span class="stat">
+                    <span class="stat-label-sm">elev</span>
+                    {hike.elevationFt.toLocaleString()} ft
+                  </span>
+                  <span class="stat-dot">·</span>
+                  <span class="stat">
+                    <span class="stat-label-sm">dist</span>
+                    {hike.mileage} mi
+                  </span>
+                  <span class="stat-dot">·</span>
+                  <span class="stat">{formatDate(hike.date)}</span>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  </main>
+
+  <Hr />
+  <Footer />
+</Layout>
+
+<!-- Data injected at build time from src/data/hikes.ts — edit that file to update the map -->
+<script is:inline define:vars={{ visitedStates, visitedParks, countriesGeo }}>
+  window.__trailsStates = visitedStates;
+  window.__trailsParks  = visitedParks;
+  window.__trailsCountriesGeo = JSON.parse(countriesGeo);
+</script>
+
+<script is:inline>
+  (function () {
+    var _mapInstance = null;
+
+    function isDark() {
+      return document.documentElement.dataset.theme === "dark";
+    }
+
+    function tileUrl() {
+      return isDark()
+        ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+    }
+
+    function accentColor() {
+      return isDark() ? "#617BFF" : "#006CAC";
+    }
+
+    function parkColor() {
+      return isDark() ? "#a78bfa" : "#7c3aed";
+    }
+
+    function initMap() {
+      var el = document.getElementById("travel-map");
+      if (!el) return;
+      if (!window.L) return;
+
+      if (_mapInstance) {
+        _mapInstance.remove();
+        _mapInstance = null;
+      }
+
+      _mapInstance = L.map("travel-map", {
+        center: [39.82, -98.57],
+        zoom: 4,
+        scrollWheelZoom: false,
+        attributionControl: false,
+        preferCanvas: true,
+      });
+
+      L.tileLayer(tileUrl(), {
+        subdomains: "abcd",
+        maxZoom: 20,
+      }).addTo(_mapInstance);
+
+      var statesSet = new Set(window.__trailsStates || []);
+
+      fetch("/assets/map/us_states.json")
+        .then(function (r) { return r.json(); })
+        .then(function (geo) {
+          if (!_mapInstance) return;
+          L.geoJson(geo, {
+            filter: function (f) { return statesSet.has(f.id); },
+            style: {
+              fillColor: accentColor(),
+              fillOpacity: 0.3,
+              weight: 0,
+            },
+          }).addTo(_mapInstance);
+        });
+
+      // Countries GeoJSON is inlined at build time — no fetch needed
+      (function () {
+        var geo = window.__trailsCountriesGeo;
+        if (geo && _mapInstance) {
+          L.geoJson(geo, {
+            style: {
+              fillColor: accentColor(),
+              fillOpacity: 0.3,
+              weight: 0,
+            },
+          }).addTo(_mapInstance);
+        }
+      })();
+
+      var parks = window.__trailsParks || [];
+      parks.forEach(function (park) {
+        var icon = L.divIcon({
+          className: "",
+          html:
+            '<div style="width:8px;height:8px;background:' +
+            parkColor() +
+            ';border:1.5px solid #fff;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',
+          iconSize: [8, 8],
+          iconAnchor: [4, 4],
+        });
+        L.marker([park.lat, park.lng], { icon: icon })
+          .bindTooltip(park.name, {
+            direction: "top",
+            offset: [0, -6],
+            className: "park-tooltip",
+          })
+          .addTo(_mapInstance);
+      });
+
+      // Re-render on theme toggle
+      document.getElementById("theme-btn")?.addEventListener(
+        "click",
+        function () { setTimeout(initMap, 60); },
+        { once: true }
+      );
+    }
+
+    function setup() {
+      if (document.getElementById("travel-map")) initMap();
+    }
+
+    document.addEventListener("astro:page-load", setup);
+    document.addEventListener("astro:after-swap", setup);
+    if (document.readyState !== "loading") {
+      setup();
+    } else {
+      document.addEventListener("DOMContentLoaded", setup);
+    }
+  })();
+</script>
+
+<style>
+  #section-title {
+    @apply mb-6 text-center text-2xl font-semibold tracking-wide;
+  }
+  #sub-section-title {
+    @apply text-xl font-semibold tracking-wide;
+  }
+
+  /* Map */
+  .map-wrapper {
+    @apply overflow-hidden rounded-xl border border-skin-line;
+  }
+  .map-stats-bar {
+    @apply flex items-center justify-center gap-4 border-b border-skin-line px-4 py-3;
+  }
+  .map-stat {
+    @apply flex items-baseline gap-1.5;
+  }
+  .stat-num {
+    @apply text-lg font-semibold;
+  }
+  .stat-label {
+    @apply text-xs uppercase tracking-wide opacity-50;
+  }
+  .stat-sep {
+    @apply opacity-25;
+  }
+  #travel-map {
+    height: 420px;
+    width: 100%;
+  }
+
+  /* Hike grid */
+  .hike-grid {
+    @apply mt-4 grid list-none gap-4 p-0 sm:grid-cols-2;
+  }
+  .hike-card {
+    @apply overflow-hidden rounded-xl border border-skin-line bg-skin-card transition-shadow hover:shadow-md;
+  }
+  .hike-card--highlight {
+    @apply border-skin-accent;
+  }
+  .hike-img {
+    @apply h-44 w-full object-cover;
+  }
+  .hike-body {
+    @apply p-4;
+  }
+  .hike-name {
+    @apply text-base font-semibold leading-snug;
+  }
+  .hike-location {
+    @apply mt-0.5 text-sm opacity-60;
+  }
+  .hike-stats {
+    @apply mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm;
+  }
+  .stat {
+    @apply flex items-baseline gap-1;
+  }
+  .stat-label-sm {
+    @apply text-xs font-semibold uppercase tracking-wide opacity-40;
+  }
+  .stat-dot {
+    @apply opacity-25;
+  }
+  .empty-state {
+    @apply mt-6 text-center text-sm opacity-50;
+  }
+</style>
+
+<style is:global>
+  .park-tooltip {
+    background: rgba(0, 0, 0, 0.75) !important;
+    border: none !important;
+    border-radius: 6px !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    font-family: inherit !important;
+    padding: 4px 8px !important;
+    box-shadow: none !important;
+  }
+  .park-tooltip::before {
+    display: none !important;
+  }
+  .leaflet-control-zoom {
+    border: none !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15) !important;
+  }
+</style>
