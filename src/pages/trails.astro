@@ -4,6 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Hr from "@components/Hr.astro";
 import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { hikes, visitedStates, visitedCountries } from "../data/hikes";
 
 function formatDate(dateStr: string) {
@@ -18,7 +19,7 @@ function formatDate(dateStr: string) {
 // Filter world GeoJSON to visitedCountries at build time — no manual scripts needed.
 // To add a country: add its name to visitedCountries in src/data/hikes.ts and save.
 const worldRaw = JSON.parse(
-  readFileSync(new URL("./map/world_simplified.geojson", import.meta.url), "utf8")
+  readFileSync(join(process.cwd(), "src/pages/map/world_simplified.geojson"), "utf8")
 );
 const countrySet = new Set(visitedCountries);
 const countriesGeo = JSON.stringify({
